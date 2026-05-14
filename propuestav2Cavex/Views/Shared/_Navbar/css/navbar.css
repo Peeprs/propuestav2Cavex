@@ -1,0 +1,30 @@
+/* Estilos del texto tomados de la primera navbar (letras negras resaltadas) */
+.nav-link { 
+    font-size: 0.95rem; 
+    letter-spacing: -0.01em; 
+    color: #000000; 
+    font-weight: 600; 
+    transition: color 0.3s; 
+    white-space: nowrap; /* Evita que los textos se partan en dos líneas */
+}
+.nav-link:hover { 
+    color: #6b7280; /* Gris al pasar el cursor */
+}
+
+/* Animación y colores del Botón GET STARTED */
+.btn-get-started {
+    color: #000000; /* Texto negro por defecto */
+}
+.btn-get-started:hover {
+    color: #ffffff; /* Texto blanco en hover */
+    border-color: #000000; /* Asegurar que el borde siga negro */
+}
+.btn-get-started .btn-bg {
+    transform: translateX(-101%);
+}
+.btn-get-started:hover .btn-bg {
+    transform: translateX(0);
+}
+.btn-get-started:hover svg {
+    transform: translateX(6px); /* Mueve la flecha a la derecha */
+}
