@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/preguntas-frecuentes.css" />
 </head>
 
-<body class="bg-[#fcfcfc] overflow-x-hidden">
+<body class="bg-[#fcfcfc]">
 
     <!-- Skeleton Loader Inicial -->
     <div id="skeleton-loader" class="skeleton-loader">
@@ -25,11 +25,9 @@
             <div class="skeleton-header">
                 <div class="skeleton-line" style="width: 200px;"></div>
             </div>
-
             <div class="skeleton-hero">
                 <div class="skeleton-card-large"></div>
             </div>
-
             <div class="skeleton-cards">
                 <span></span>
                 <span></span>
@@ -39,22 +37,22 @@
     </div>
 
     <!-- Barra Global de Dispositivos -->
-    <div class="w-full relative z-[100] hidden sm:block">
+    <div class="w-full relative z-[100]">
         <div class="barra-global">
             <div class="barra-brand">CAVEX</div>
 
-            <svg class="device-icon active" viewBox="0 0 24 24" title="Desktop" aria-hidden="true">
+            <svg class="device-icon active" viewBox="0 0 24 24" title="Desktop">
                 <rect x="2" y="4" width="20" height="12" rx="1" ry="1"></rect>
                 <line x1="8" y1="20" x2="16" y2="20"></line>
                 <line x1="12" y1="16" x2="12" y2="20"></line>
             </svg>
 
-            <svg class="device-icon" viewBox="0 0 24 24" title="Tablet" aria-hidden="true">
+            <svg class="device-icon" viewBox="0 0 24 24" title="Tablet">
                 <rect x="4" y="2" width="16" height="20" rx="1" ry="1"></rect>
                 <circle cx="12" cy="19" r="0.5" fill="currentColor"></circle>
             </svg>
 
-            <svg class="device-icon" viewBox="0 0 24 24" title="Mobile" aria-hidden="true">
+            <svg class="device-icon" viewBox="0 0 24 24" title="Mobile">
                 <rect x="7" y="3" width="10" height="18" rx="1" ry="1"></rect>
                 <circle cx="12" cy="18" r="0.5" fill="currentColor"></circle>
             </svg>
@@ -62,19 +60,19 @@
     </div>
 
     <!-- Header / Navigation -->
-    <header class="sticky top-3 sm:top-6 z-[100] w-full">
-        <div class="nav-wrapper mt-3 sm:mt-6 px-3 sm:px-4">
-            <nav class="w-full max-w-[1600px] mx-auto bg-white border border-black/10 rounded-[28px] sm:rounded-[50px] px-3 sm:px-6 py-3 flex items-center justify-between shadow-md">
+    <header class="sticky top-6 z-[100] w-full">
+        <div class="nav-wrapper mt-6 px-4">
+            <nav class="w-full max-w-[1600px] mx-auto bg-white border border-black/10 rounded-[50px] px-6 py-3 flex items-center justify-between shadow-md">
 
                 <!-- Identidad -->
-                <a href="index.html" class="flex items-center gap-2 sm:gap-3 pl-1 sm:pl-4 pr-3 sm:pr-8 border-r border-black/5 shrink-0">
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold text-xs sm:text-sm">CX</span>
+                <div class="flex items-center gap-3 pl-4 pr-8 border-r border-black/5">
+                    <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">CX</span>
                     </div>
-                    <span class="text-lg sm:text-xl font-bold tracking-tighter">CAVEX</span>
-                </a>
+                    <span class="text-xl font-bold tracking-tighter">CAVEX</span>
+                </div>
 
-                <!-- Menú desktop -->
+                <!-- Menú -->
                 <div class="hidden xl:flex items-center gap-4 flex-grow justify-center px-6">
                     <div class="flex gap-3">
                         <a href="index.html" class="nav-link">Inicio</a>
@@ -96,29 +94,23 @@
                     </div>
                 </div>
 
-                <!-- Acciones -->
-                <div class="flex items-center gap-2 lg:gap-6 pl-2 lg:pl-6 shrink-0">
+                <!-- Botones -->
+                <div class="flex items-center gap-6 pl-6">
                     <a href="index.html#contacto" class="nav-link hidden lg:block whitespace-nowrap">Contacto</a>
 
-                    <a href="index.html#contacto" class="btn-get-started hidden lg:flex relative items-center justify-center px-8 py-2.5 rounded-full overflow-hidden border-2 border-black bg-white font-bold uppercase tracking-widest text-sm transition-colors duration-300 min-w-[180px]">
+                    <a href="index.html#contacto" class="btn-get-started relative flex items-center justify-center px-8 py-2.5 rounded-full overflow-hidden border-2 border-black bg-white font-bold uppercase tracking-widest text-sm transition-colors duration-300 min-w-[180px]">
                         <div class="btn-bg absolute inset-0 bg-black transition-transform duration-500 ease-out z-0"></div>
 
                         <div class="btn-content relative z-10 flex items-center gap-3 transition-colors duration-300">
                             <span class="whitespace-nowrap">Get Started</span>
-                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
                             </svg>
                         </div>
                     </a>
 
-                    <button 
-                        class="xl:hidden p-2 text-black rounded-full hover:bg-black/5 transition-colors"
-                        id="mobile-menu-button"
-                        type="button"
-                        aria-label="Abrir menú"
-                        aria-controls="mobile-menu"
-                        aria-expanded="false">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" class="w-7 h-7 sm:w-8 sm:h-8">
+                    <button class="xl:hidden p-2 text-black" id="mobile-menu-button" type="button" aria-label="Abrir menú">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
                         </svg>
                     </button>
@@ -174,7 +166,7 @@
                     <div class="support-actions">
                         <a href="mailto:contacto@cavex.com">
                             <span>
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M4 4h16v16H4z"></path>
                                     <path d="M4 6l8 7 8-7"></path>
                                 </svg>
@@ -184,7 +176,7 @@
 
                         <a href="https://wa.me/0000000000">
                             <span>
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                                 </svg>
                             </span>
@@ -193,7 +185,7 @@
 
                         <a href="tel:0000000000">
                             <span>
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M22 16.92v3a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h3a2 2 0 012 1.72c.12.9.33 1.78.63 2.62a2 2 0 01-.45 2.11L9 10.64a16 16 0 006.36 6.36l1.19-1.18a2 2 0 012.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0122 16.92z"></path>
                                 </svg>
                             </span>
@@ -208,7 +200,7 @@
                         <button class="faq-question" type="button" aria-expanded="true">
                             <span>¿Puedo programar un traslado?</span>
                             <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M6 9l6 6 6-6"></path>
                                 </svg>
                             </span>
@@ -226,7 +218,7 @@
                         <button class="faq-question" type="button" aria-expanded="false">
                             <span>¿Puede pagar un familiar por mí?</span>
                             <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M6 9l6 6 6-6"></path>
                                 </svg>
                             </span>
@@ -244,7 +236,7 @@
                         <button class="faq-question" type="button" aria-expanded="false">
                             <span>¿El conductor recibe efectivo?</span>
                             <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M6 9l6 6 6-6"></path>
                                 </svg>
                             </span>
@@ -262,7 +254,7 @@
                         <button class="faq-question" type="button" aria-expanded="false">
                             <span>¿Cómo se monitorea el viaje?</span>
                             <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M6 9l6 6 6-6"></path>
                                 </svg>
                             </span>
@@ -280,7 +272,7 @@
                         <button class="faq-question" type="button" aria-expanded="false">
                             <span>¿Qué pasa si cambio de destino?</span>
                             <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M6 9l6 6 6-6"></path>
                                 </svg>
                             </span>
@@ -298,7 +290,7 @@
                         <button class="faq-question" type="button" aria-expanded="false">
                             <span>¿CAVEX es una ambulancia?</span>
                             <span class="faq-arrow">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
                                     <path d="M6 9l6 6 6-6"></path>
                                 </svg>
                             </span>
