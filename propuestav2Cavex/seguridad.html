@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seguridad | CAVEX</title>
+    <meta name="description" content="Conoce cómo CAVEX protege cada traslado con choferes certificados, seguimiento GPS 24/7 y unidades premium." />
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Scripts Base -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cavex: {
+                            orange: '#ED623B',
+                            orangeHover: '#d84b24',
+                            blue: '#1B365D',
+                            blueHover: '#254B80',
+                            darkBg: '#13253F',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/seguridad.css" />
+</head>
+
+<body class="bg-[#fcfcfc]">
+
+    <!-- Skeleton Loader -->
+    <div id="skeleton-loader" class="skeleton-loader">
+        <div class="skeleton-shell">
+            <div class="skeleton-header"><div class="skeleton-line" style="width: 200px;"></div></div>
+            <div class="skeleton-hero"><div class="skeleton-card-large"></div></div>
+            <div class="skeleton-cards"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+
+    <!-- Barra Global -->
+    <div class="w-full relative z-[100]">
+        <div class="barra-global">
+            <div class="barra-brand">CAVEX</div>
+            <svg class="device-icon active" viewBox="0 0 24 24" onclick="document.querySelectorAll('.device-icon').forEach(el => el.classList.remove('active')); this.classList.add('active');" title="Desktop">
+                <rect x="2" y="4" width="20" height="12" rx="1" ry="1"></rect>
+                <line x1="8" y1="20" x2="16" y2="20"></line>
+                <line x1="12" y1="16" x2="12" y2="20"></line>
+            </svg>
+            <svg class="device-icon" viewBox="0 0 24 24" onclick="document.querySelectorAll('.device-icon').forEach(el => el.classList.remove('active')); this.classList.add('active');" title="Tablet">
+                <rect x="4" y="2" width="16" height="20" rx="1" ry="1"></rect>
+                <circle cx="12" cy="19" r="0.5" fill="currentColor"></circle>
+            </svg>
+            <svg class="device-icon" viewBox="0 0 24 24" onclick="document.querySelectorAll('.device-icon').forEach(el => el.classList.remove('active')); this.classList.add('active');" title="Mobile">
+                <rect x="7" y="3" width="10" height="18" rx="1" ry="1"></rect>
+                <circle cx="12" cy="18" r="0.5" fill="currentColor"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-6 z-[100] w-full">
+        <div class="nav-wrapper mt-6 px-4">
+            <nav class="w-full max-w-[1600px] mx-auto bg-white border border-cavex-blue/10 rounded-[50px] px-6 py-3 flex items-center justify-between shadow-md">
+                <div class="flex items-center gap-3 pl-4 pr-8 border-r border-cavex-blue/5">
+                    <div class="w-10 h-10 bg-cavex-blue rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">CX</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tighter">CAVEX</span>
+                </div>
+                <div class="hidden xl:flex items-center gap-4 flex-grow justify-center px-6">
+                    <div class="flex gap-3"><a href="index.html" class="nav-link">Inicio</a></div>
+                    <div class="h-4 w-[1px] bg-cavex-blue/20"></div>
+                    <div class="flex gap-3">
+                        <a href="como-funciona.html" class="nav-link">Cómo funciona</a>
+                        <a href="seguridad.html" class="nav-link active-link">Seguridad</a>
+                    </div>
+                    <div class="h-4 w-[1px] bg-cavex-blue/20"></div>
+                    <div class="flex gap-3">
+                        <a href="index.html#servicios" class="nav-link">Servicios</a>
+                        <a href="preguntas-frecuentes.html" class="nav-link">Preguntas frecuentes</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 pl-6">
+                    <a href="index.html#contacto" class="nav-link hidden lg:block whitespace-nowrap">Contacto</a>
+                    <a href="index.html#contacto" class="btn-get-started relative flex items-center justify-center px-8 py-2.5 rounded-full overflow-hidden border-2 border-[#ED623B] bg-white font-bold uppercase tracking-widest text-sm transition-colors duration-300 min-w-[180px]">
+                        <div class="btn-bg absolute inset-0 transition-transform duration-500 ease-out z-0"></div>
+                        <div class="btn-content relative z-10 flex items-center gap-3 transition-colors duration-300">
+                            <span class="whitespace-nowrap">Solicitar traslado</span>
+                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                            </svg>
+                        </div>
+                    </a>
+                    <button class="xl:hidden p-2 text-cavex-blue" id="mobile-menu-button" type="button" aria-label="Abrir menú">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="mobile-menu-panel">
+                <a href="index.html">Inicio</a>
+                <a href="como-funciona.html">Cómo funciona</a>
+                <a href="seguridad.html">Seguridad</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+                <a href="index.html#contacto">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- HERO                                    -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="seg-hero reveal" style="--reveal-dist: 10px;">
+            <div class="seg-hero-bg"></div>
+
+            <!-- Shield decorativo -->
+            <svg class="seg-hero-shield" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.5">
+                <path d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+            </svg>
+
+            <div class="seg-hero-content">
+                <div class="seg-hero-badge">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                    Seguridad CAVEX
+                </div>
+                <h1>
+                    Tu tranquilidad<br>
+                    <span class="accent">es nuestra misión.</span>
+                </h1>
+                <p class="seg-hero-desc">Cada detalle fue diseñado para que viajes con total confianza. Conductores verificados, seguimiento en vivo y unidades inspeccionadas.</p>
+                <div class="seg-hero-tags">
+                    <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Verificado</span>
+                    <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg> GPS 24/7</span>
+                    <span><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"/></svg> Protegido</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- SECCIÓN 1: CHOFERES                     -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="w-[95%] max-w-[1100px] mx-auto py-16 reveal">
+            <div class="group relative bg-white rounded-3xl p-8 lg:p-12 border border-gray-100 shadow-xl overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(237,98,59,0.2)] hover:-translate-y-3 hover:border-cavex-orange/30">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cavex-orange/5 rounded-full blur-3xl group-hover/card:bg-cavex-orange/20 transition-colors duration-700"></div>
+                
+                <div class="relative z-10 flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="lg:w-1/2 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cavex-blue/5 text-cavex-blue font-bold text-sm tracking-widest uppercase border border-cavex-blue/10">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Choferes verificados
+                        </div>
+                        <h2 class="text-4xl font-black text-cavex-blue leading-tight tracking-tight">
+                            Personal <span class="text-cavex-orange">profesional</span> y de confianza
+                        </h2>
+                        <p class="text-gray-600 text-lg leading-relaxed transition-colors duration-300">
+                            Cada conductor pasa por un <span class="font-bold transition-colors duration-300 group-hover/card:text-cavex-orange group-hover/card:bg-cavex-orange/10 px-1 rounded">proceso riguroso de selección</span> que incluye <span class="font-bold transition-colors duration-300 group-hover/card:text-cavex-orange group-hover/card:bg-cavex-orange/10 px-1 rounded">verificación de antecedentes</span>, pruebas psicométricas y capacitación continua.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <div class="flex items-center gap-3  cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl icon-box bg-gray-50 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-3">
+                                    <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+                                </div>
+                                <span class="font-bold text-gray-800 text-sm group-hover:text-cavex-orange transition-colors">Verificación completa</span>
+                            </div>
+                            <div class="flex items-center gap-3  cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl icon-box bg-gray-50 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3">
+                                    <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                                </div>
+                                <span class="font-bold text-gray-800 text-sm group-hover:text-cavex-orange transition-colors">Capacitación constante</span>
+                            </div>
+                            <div class="flex items-center gap-3  cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl icon-box bg-gray-50 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-3">
+                                    <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                </div>
+                                <span class="font-bold text-gray-800 text-sm group-hover:text-cavex-orange transition-colors">Evaluaciones continuas</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 w-full h-80 lg:h-96 rounded-2xl overflow-hidden relative group-hover/card:shadow-2xl transition-all duration-500">
+                        <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+                        <div class="absolute inset-0 bg-cavex-blue/10 group-hover/card:bg-transparent transition-colors duration-500 z-10"></div>
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-300 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ═══════════════════════════════════════ -->
+        <!-- SECCIÓN 2: SEGUIMIENTO (DARK)           -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="w-full bg-cavex-darkBg py-20 relative overflow-hidden">
+                        <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-cavex-orange/10 rounded-full blur-[120px] pointer-events-none animate-blob1"></div>
+            <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none animate-blob2"></div>
+
+            <div class="w-[95%] max-w-[1100px] mx-auto reveal">
+                <div class="group relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/10 shadow-2xl overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(237,98,59,0.3)] hover:-translate-y-3 hover:border-cavex-orange/40 hover:bg-cavex-orange/5 hover:shadow-[0_20px_40px_-15px_rgba(237,98,59,0.3)]">
+                    <div class="relative z-10 flex flex-col lg:flex-row-reverse gap-12 items-center">
+                        <div class="lg:w-1/2 space-y-6">
+                            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cavex-orange/10 text-cavex-orange font-bold text-sm tracking-widest uppercase border border-cavex-orange/20">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                Seguimiento en vivo
+                            </div>
+                            <h2 class="text-4xl font-black text-white leading-tight tracking-tight">
+                                Rastreo <span class="text-cavex-orange">GPS 24/7</span> de cada viaje
+                            </h2>
+                            <p class="text-gray-400 text-lg leading-relaxed transition-colors duration-300">
+                                Nuestra central monitorea cada traslado en <span class="font-bold text-gray-200 transition-colors duration-300 group-hover/card:text-cavex-orange group-hover/card:bg-cavex-orange/20 px-1 rounded">tiempo real</span>. Tú y tu familia pueden <span class="font-bold text-gray-200 transition-colors duration-300 group-hover/card:text-cavex-orange group-hover/card:bg-cavex-orange/20 px-1 rounded">seguir la ruta</span> desde cualquier dispositivo.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                                <div class="flex items-center gap-3  cursor-pointer">
+                                    <div class="w-10 h-10 rounded-xl icon-box bg-white/5 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-3 border border-white/10 group-hover:border-cavex-orange">
+                                        <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                                    </div>
+                                    <span class="font-bold text-gray-300 text-sm group-hover:text-white transition-colors">Ruta en tiempo real</span>
+                                </div>
+                                <div class="flex items-center gap-3  cursor-pointer">
+                                    <div class="w-10 h-10 rounded-xl icon-box bg-white/5 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3 border border-white/10 group-hover:border-cavex-orange">
+                                        <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                                    </div>
+                                    <span class="font-bold text-gray-300 text-sm group-hover:text-white transition-colors">Notificaciones</span>
+                                </div>
+                                <div class="flex items-center gap-3  cursor-pointer">
+                                    <div class="w-10 h-10 rounded-xl icon-box bg-white/5 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-3 border border-white/10 group-hover:border-cavex-orange">
+                                        <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                    </div>
+                                    <span class="font-bold text-gray-300 text-sm group-hover:text-white transition-colors">Acceso familiar</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2 w-full h-80 lg:h-96 rounded-2xl overflow-hidden relative group-hover/card:shadow-2xl transition-all duration-500 border border-white/5">
+                            <div class="absolute inset-0 bg-white/5 animate-pulse"></div>
+                            <div class="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
+                                <svg class="w-16 h-16 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- SECCIÓN 3: COMODIDAD                    -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="w-[95%] max-w-[1100px] mx-auto py-16 reveal">
+            <div class="group relative bg-white rounded-3xl p-8 lg:p-12 border border-gray-100 shadow-xl overflow-hidden transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(237,98,59,0.2)] hover:-translate-y-3 hover:border-cavex-orange/30">
+                <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-cavex-orange/5 rounded-full blur-3xl group-hover/card:bg-cavex-orange/20 transition-colors duration-700"></div>
+                
+                <div class="relative z-10 flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="lg:w-1/2 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cavex-blue/5 text-cavex-blue font-bold text-sm tracking-widest uppercase border border-cavex-blue/10">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                            Comodidad
+                        </div>
+                        <h2 class="text-4xl font-black text-cavex-blue leading-tight tracking-tight">
+                            Vehículos <span class="text-cavex-orange">espaciosos</span> y climatizados
+                        </h2>
+                        <p class="text-gray-600 text-lg leading-relaxed transition-colors duration-300">
+                            Cada unidad es <span class="font-bold transition-colors duration-300 group-hover/card:text-cavex-orange group-hover/card:bg-cavex-orange/10 px-1 rounded">inspeccionada y sanitizada</span> antes del servicio. Viaja relajado en <span class="font-bold transition-colors duration-300 group-hover/card:text-cavex-orange group-hover/card:bg-cavex-orange/10 px-1 rounded">asientos cómodos</span> con clima controlado y ambiente tranquilo.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                            <div class="flex items-center gap-3  cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl icon-box bg-gray-50 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-3">
+                                    <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                                <span class="font-bold text-gray-800 text-sm group-hover:text-cavex-orange transition-colors">Inspección mecánica</span>
+                            </div>
+                            <div class="flex items-center gap-3  cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl icon-box bg-gray-50 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-3">
+                                    <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                                </div>
+                                <span class="font-bold text-gray-800 text-sm group-hover:text-cavex-orange transition-colors">Sanitización</span>
+                            </div>
+                            <div class="flex items-center gap-3  cursor-pointer">
+                                <div class="w-10 h-10 rounded-xl icon-box bg-gray-50 flex items-center justify-center group-hover:bg-cavex-orange group-hover:text-white text-cavex-orange transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-3">
+                                    <svg class="w-5 h-5 " stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                </div>
+                                <span class="font-bold text-gray-800 text-sm group-hover:text-cavex-orange transition-colors">Seguro incluido</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 w-full h-80 lg:h-96 rounded-2xl overflow-hidden relative group-hover/card:shadow-2xl transition-all duration-500">
+                        <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+                        <div class="absolute inset-0 bg-cavex-orange/5 group-hover/card:bg-transparent transition-colors duration-500 z-10"></div>
+                        <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-300 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                        <!-- ═══════════════════════════════════════ -->
+        <!-- DIFERENCIADORES – Container con barra   -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="seg-diff py-32 bg-[#0B1120] relative overflow-hidden">
+            <!-- Fondos vivos -->
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNHYtNGgtMnY0aC00djJoNHY0aDJ2LTRoNHYtMmgtNHptMC0zMFYwaC0ydjRoLTR2Mmg0djRoMnYtNGg0VjRoLTR6TTYgMzR2LTRIMHY0aC00djJoNHY0aDJ2LTRoNHYtMmgtNHptMC0zMFYwSDB2NGgtNHYyaDR2NGgydi00aDRWNGgtNHoiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjwvZz48L3N2Zz4=')]"></div>
+            <div class="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-gradient-to-b from-cavex-orange/20 to-transparent blur-[150px] animate-blob1"></div>
+            <div class="absolute -bottom-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-t from-blue-600/10 to-transparent blur-[150px] animate-blob2"></div>
+
+            <div class="w-[95%] max-w-[1300px] mx-auto relative z-10">
+                <!-- Título gigante -->
+                <div class="text-center mb-24 reveal">
+                    <h2 class="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-6 leading-tight">
+                        ¿Qué más nos <br class="hidden md:block"/><span class="text-transparent bg-clip-text bg-gradient-to-r from-cavex-orange to-amber-500">diferencia?</span>
+                    </h2>
+                    <p class="text-gray-400 text-xl md:text-2xl max-w-3xl mx-auto font-light">
+                        Servicio de primera clase pensado exclusivamente en tu comodidad y seguridad.
+                    </p>
+                </div>
+
+                <div class="diff-content relative diff-container">
+                    <!-- Contenedor de slides con grid para mantener altura -->
+                    <div class="diff-slides grid">
+                        <!-- SLIDE 1 -->
+                        <div class="diff-slide active flex flex-col md:flex-row gap-8 " data-index="0" style="grid-area: 1 / 1;">
+                            
+                            <div class="diff-feature group flex-1 bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 rounded-[2.5rem] p-10 lg:p-14 hover:-translate-y-4 hover:shadow-[0_40px_80px_-20px_rgba(237,98,59,0.25)] hover:border-cavex-orange/40 transition-all duration-500 overflow-hidden relative backdrop-blur-2xl cursor-pointer">
+                                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cavex-orange/20 rounded-full blur-[80px] group-hover:bg-cavex-orange/40 transition-colors duration-700"></div>
+                                <div class="relative z-10">
+                                    <div class="w-20 h-20 mb-8 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-cavex-orange group-hover:border-cavex-orange group-hover:shadow-[0_0_30px_rgba(237,98,59,0.6)] transition-all duration-500 transform group-hover:scale-110">
+                                        <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 stroke-current stroke-[1.5] text-cavex-orange group-hover:text-white transition-colors duration-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 7v5l3 3" class="group-hover:text-white text-white/50"></path></svg>
+                                    </div>
+                                    <h3 class="text-3xl lg:text-4xl font-black text-white mb-4 tracking-tight group-hover:text-cavex-orange transition-colors duration-300">Puntualidad</h3>
+                                    <p class="text-gray-400 text-lg lg:text-xl leading-relaxed font-light">Llegamos exactamente a la hora pactada. Sin excusas, sin retrasos, garantizando tu tranquilidad.</p>
+                                </div>
+                            </div>
+
+                            <div class="diff-feature group flex-1 bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 rounded-[2.5rem] p-10 lg:p-14 hover:-translate-y-4 hover:shadow-[0_40px_80px_-20px_rgba(237,98,59,0.25)] hover:border-cavex-orange/40 transition-all duration-500 overflow-hidden relative backdrop-blur-2xl cursor-pointer">
+                                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cavex-orange/20 rounded-full blur-[80px] group-hover:bg-cavex-orange/40 transition-colors duration-700"></div>
+                                <div class="relative z-10">
+                                    <div class="w-20 h-20 mb-8 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-cavex-orange group-hover:border-cavex-orange group-hover:shadow-[0_0_30px_rgba(237,98,59,0.6)] transition-all duration-500 transform group-hover:scale-110">
+                                        <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 stroke-current stroke-[1.5] text-cavex-orange group-hover:text-white transition-colors duration-500"><path d="M12 11c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" class="group-hover:text-white text-white/50"></path><path d="M21 21v-2c0-2.21-1.79-4-4-4H7c-2.21 0-4 1.79-4 4v2"></path></svg>
+                                    </div>
+                                    <h3 class="text-3xl lg:text-4xl font-black text-white mb-4 tracking-tight group-hover:text-cavex-orange transition-colors duration-300">A tu medida</h3>
+                                    <p class="text-gray-400 text-lg lg:text-xl leading-relaxed font-light">Diseñamos cada traslado adaptado a tus horarios específicos, paradas y preferencias personales.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 2 -->
+                        <div class="diff-slide flex flex-col md:flex-row gap-8 " data-index="1" style="grid-area: 1 / 1;">
+                            
+                            <div class="diff-feature group flex-1 bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 rounded-[2.5rem] p-10 lg:p-14 hover:-translate-y-4 hover:shadow-[0_40px_80px_-20px_rgba(237,98,59,0.25)] hover:border-cavex-orange/40 transition-all duration-500 overflow-hidden relative backdrop-blur-2xl cursor-pointer">
+                                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cavex-orange/20 rounded-full blur-[80px] group-hover:bg-cavex-orange/40 transition-colors duration-700"></div>
+                                <div class="relative z-10">
+                                    <div class="w-20 h-20 mb-8 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-cavex-orange group-hover:border-cavex-orange group-hover:shadow-[0_0_30px_rgba(237,98,59,0.6)] transition-all duration-500 transform group-hover:scale-110">
+                                        <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 stroke-current stroke-[1.5] text-cavex-orange group-hover:text-white transition-colors duration-500"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M2 12h20" class="text-white/30"></path><path d="M12 2a15.3 15.3 0 015 10 15.3 15.3 0 01-5 10A15.3 15.3 0 017 12 15.3 15.3 0 0112 2z" class="group-hover:text-white text-white/50"></path></svg>
+                                    </div>
+                                    <h3 class="text-3xl lg:text-4xl font-black text-white mb-4 tracking-tight group-hover:text-cavex-orange transition-colors duration-300">Cobertura total</h3>
+                                    <p class="text-gray-400 text-lg lg:text-xl leading-relaxed font-light">Llegamos a cualquier punto de la zona metropolitana y ofrecemos rutas foráneas completamente seguras.</p>
+                                </div>
+                            </div>
+
+                            <div class="diff-feature group flex-1 bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 rounded-[2.5rem] p-10 lg:p-14 hover:-translate-y-4 hover:shadow-[0_40px_80px_-20px_rgba(237,98,59,0.25)] hover:border-cavex-orange/40 transition-all duration-500 overflow-hidden relative backdrop-blur-2xl cursor-pointer">
+                                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cavex-orange/20 rounded-full blur-[80px] group-hover:bg-cavex-orange/40 transition-colors duration-700"></div>
+                                <div class="relative z-10">
+                                    <div class="w-20 h-20 mb-8 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-cavex-orange group-hover:border-cavex-orange group-hover:shadow-[0_0_30px_rgba(237,98,59,0.6)] transition-all duration-500 transform group-hover:scale-110">
+                                        <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 stroke-current stroke-[1.5] text-cavex-orange group-hover:text-white transition-colors duration-500"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4m-8-4v4m-5 4h18" class="group-hover:text-white text-white/50"></path></svg>
+                                    </div>
+                                    <h3 class="text-3xl lg:text-4xl font-black text-white mb-4 tracking-tight group-hover:text-cavex-orange transition-colors duration-300">Planificación</h3>
+                                    <p class="text-gray-400 text-lg lg:text-xl leading-relaxed font-light">Programa tus traslados con anticipación y asegura disponibilidad total sin preocuparte del transporte.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SLIDE 3 -->
+                        <div class="diff-slide flex flex-col md:flex-row gap-8 " data-index="2" style="grid-area: 1 / 1;">
+                            
+                            <div class="diff-feature group flex-1 bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 rounded-[2.5rem] p-10 lg:p-14 hover:-translate-y-4 hover:shadow-[0_40px_80px_-20px_rgba(237,98,59,0.25)] hover:border-cavex-orange/40 transition-all duration-500 overflow-hidden relative backdrop-blur-2xl cursor-pointer">
+                                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cavex-orange/20 rounded-full blur-[80px] group-hover:bg-cavex-orange/40 transition-colors duration-700"></div>
+                                <div class="relative z-10">
+                                    <div class="w-20 h-20 mb-8 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-cavex-orange group-hover:border-cavex-orange group-hover:shadow-[0_0_30px_rgba(237,98,59,0.6)] transition-all duration-500 transform group-hover:scale-110">
+                                        <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 stroke-current stroke-[1.5] text-cavex-orange group-hover:text-white transition-colors duration-500"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" class="group-hover:text-white text-white/50"></path></svg>
+                                    </div>
+                                    <h3 class="text-3xl lg:text-4xl font-black text-white mb-4 tracking-tight group-hover:text-cavex-orange transition-colors duration-300">Ejecutivos</h3>
+                                    <p class="text-gray-400 text-lg lg:text-xl leading-relaxed font-light">Planes dedicados para empresas con facturación simplificada y reportes mensuales detallados.</p>
+                                </div>
+                            </div>
+
+                            <div class="diff-feature group flex-1 bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 rounded-[2.5rem] p-10 lg:p-14 hover:-translate-y-4 hover:shadow-[0_40px_80px_-20px_rgba(237,98,59,0.25)] hover:border-cavex-orange/40 transition-all duration-500 overflow-hidden relative backdrop-blur-2xl cursor-pointer">
+                                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cavex-orange/20 rounded-full blur-[80px] group-hover:bg-cavex-orange/40 transition-colors duration-700"></div>
+                                <div class="relative z-10">
+                                    <div class="w-20 h-20 mb-8 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-cavex-orange group-hover:border-cavex-orange group-hover:shadow-[0_0_30px_rgba(237,98,59,0.6)] transition-all duration-500 transform group-hover:scale-110">
+                                        <svg viewBox="0 0 24 24" fill="none" class="w-10 h-10 stroke-current stroke-[1.5] text-cavex-orange group-hover:text-white transition-colors duration-500"><path d="M12 22l-8-4V8l8-4 8 4v10l-8 4z"></path><path d="M9 12l2 2 4-4" class="group-hover:text-white text-white/50"></path></svg>
+                                    </div>
+                                    <h3 class="text-3xl lg:text-4xl font-black text-white mb-4 tracking-tight group-hover:text-cavex-orange transition-colors duration-300">Cero fallas</h3>
+                                    <p class="text-gray-400 text-lg lg:text-xl leading-relaxed font-light">Cero cancelaciones de último momento. Nuestro compromiso es que tu traslado siempre se cumpla.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bars Premium -->
+                        <div class="diff-progress mt-20 flex justify-center">
+                            <div class="progress-bar-container flex gap-6 bg-white/5 p-3 rounded-full border border-white/10 backdrop-blur-md">
+                                <div class="progress-bar relative w-24 md:w-32 h-2 bg-black/40 rounded-full overflow-hidden cursor-pointer" data-index="0"><span class="progress-fill absolute top-0 left-0 h-full bg-gradient-to-r from-cavex-orange to-amber-400 w-0 rounded-full shadow-[0_0_10px_rgba(237,98,59,0.8)]"></span></div>
+                                <div class="progress-bar relative w-24 md:w-32 h-2 bg-black/40 rounded-full overflow-hidden cursor-pointer" data-index="1"><span class="progress-fill absolute top-0 left-0 h-full bg-gradient-to-r from-cavex-orange to-amber-400 w-0 rounded-full shadow-[0_0_10px_rgba(237,98,59,0.8)]"></span></div>
+                                <div class="progress-bar relative w-24 md:w-32 h-2 bg-black/40 rounded-full overflow-hidden cursor-pointer" data-index="2"><span class="progress-fill absolute top-0 left-0 h-full bg-gradient-to-r from-cavex-orange to-amber-400 w-0 rounded-full shadow-[0_0_10px_rgba(237,98,59,0.8)]"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- CTA FINAL – ESCUDO + ANILLOS            -->
+        <!-- ═══════════════════════════════════════ -->
+        <section class="seg-cta-section reveal">
+            <div class="seg-cta-wrap">
+                <!-- Texto -->
+                <div class="seg-cta-text">
+                    <span class="eyebrow">Viaja con confianza</span>
+                    <h2>¿Listo para un<br><span class="hl">traslado seguro?</span></h2>
+                    <p>Solicita tu próximo traslado con CAVEX y experimenta la tranquilidad de viajar protegido en cada kilómetro.</p>
+                    <div class="seg-cta-btns">
+                        <a href="index.html#contacto" class="btn-fill">Solicitar traslado</a>
+                        <a href="como-funciona.html" class="btn-ghost">Cómo funciona</a>
+                    </div>
+                </div>
+                <!-- Visual abstracto con escudo -->
+                <div class="seg-cta-visual">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                    <div class="seg-cta-rings">
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                    </div>
+                    <svg class="seg-cta-shield" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="0.4">
+                        <path d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="w-full py-10 px-6 border-t border-black/5 text-center">
+        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">&copy; 2026 GRUPO CAVEX</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/seguridad.js"></script>
+</body>
+</html>
