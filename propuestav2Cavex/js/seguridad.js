@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!slides.length || !progressBars.length) return;
 
   let index = 0;
-  const INTERVAL = 3000; // Increased interval for a better experience
+  const INTERVAL = 5000; // 5 segundos
   let timer = null;
+  let remainingTime = INTERVAL;
+  let startTime = Date.now();
 
   function resetFills() {
     progressBars.forEach(bar => {
@@ -22,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function activate(i) {
-
     
     progressBars.forEach((bar, barIndex) => {
       const fill = bar.querySelector('.progress-fill');
@@ -63,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     index = i;
+    remainingTime = INTERVAL;
+    startTime = Date.now();
   }
 
   function next() {
@@ -73,15 +76,45 @@ document.addEventListener('DOMContentLoaded', function () {
       void progressBars[0].offsetWidth;
     }
     activate(nextIndex);
+    start();
   }
 
   function start() {
-    stop();
-    timer = setInterval(next, INTERVAL);
+    if (timer) clearTimeout(timer);
+    startTime = Date.now();
+    
+    // Resume progress bar CSS
+    const activeBar = progressBars[index];
+    if (activeBar) {
+      const fill = activeBar.querySelector('.progress-fill');
+      if (fill) {
+        fill.style.transition = `width ${remainingTime}ms linear`;
+        fill.style.width = '100%';
+      }
+    }
+    
+    timer = setTimeout(next, remainingTime);
   }
 
   function stop() {
-    if (timer) { clearInterval(timer); timer = null; }
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+      
+      remainingTime -= (Date.now() - startTime);
+      if (remainingTime < 0) remainingTime = 0;
+      
+      // Freeze progress bar CSS
+      const activeBar = progressBars[index];
+      if (activeBar) {
+        const fill = activeBar.querySelector('.progress-fill');
+        if (fill) {
+          const currentWidth = window.getComputedStyle(fill).width;
+          fill.style.transition = 'none';
+          fill.style.width = currentWidth;
+        }
+      }
+    }
   }
 
   // attach clicks to progress bars
@@ -93,11 +126,14 @@ document.addEventListener('DOMContentLoaded', function () {
         void bar.offsetWidth;
       }
       activate(i);
-      // restart after a pause
       start();
     });
     bar.style.cursor = 'pointer';
   });
+
+  // Pause on hover
+  diffContainer.addEventListener('mouseenter', stop);
+  diffContainer.addEventListener('mouseleave', start);
 
   // Initialize
   activate(0);

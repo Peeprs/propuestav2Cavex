@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - CAVEX</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Comunícate con CAVEX para solicitar o programar tus traslados seguros y programados de forma personalizada." />
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cavex: {
+                            orange: '#ED623B',
+                            orangeHover: '#d9532d',
+                            blue: '#1E293B',
+                            blueHover: '#0F172A',
+                            darkBg: '#0B1120',
+                            cardBg: 'rgba(255, 255, 255, 0.05)',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts - Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- Estilos Locales -->
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    
+    <style>
+        body {
+            background-color: #0B1120;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Constelación de Puntos de Fondo -->
+    <div class="fixed inset-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNHYtNGgtMnY0aC00djJoNHY0aDJ2LTRoNHYtMmgtNHptMC0zMFYwaC0ydjRoLTR2Mmg0djRoMnYtNGg0VjRoLTR6TTYgMzR2LTRIMHY0aC00djJoNHY0aDJ2LTRoNHYtMmgtNHptMC0zMFYwSDB2NGgtNHYyaDR2NGgydi00aDRWNGgtNHoiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiIvPjwvZz48L3N2Zz4=')] pointer-events-none z-0"></div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-6 z-[100] w-full">
+        <div class="nav-wrapper mt-6 px-4">
+            <nav class="w-full max-w-[1600px] mx-auto bg-white/10 border border-white/10 backdrop-blur-md rounded-[50px] px-6 py-4 flex items-center justify-between shadow-lg">
+                
+                <!-- Identidad -->
+                <a href="index.html" class="flex items-center pl-4 pr-8 border-r border-white/10 no-underline">
+                    <img src="assets/images/logocavex.webp" alt="CAVEX Logo" class="h-12 w-auto object-contain transition-transform duration-300 hover:scale-105">
+                </a>
+
+                <!-- Menú -->
+                <div class="hidden xl:flex items-center gap-4 flex-grow justify-center px-6">
+                    <!-- Grupo 1 -->
+                    <div class="flex gap-3">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </div>
+
+                    <div class="h-4 w-[1px] bg-white/20"></div>
+
+                    <!-- Grupo 2 -->
+                    <div class="flex gap-3">
+                        <a href="como-funciona.html" class="nav-link">Cómo funciona</a>
+                        <a href="seguridad.html" class="nav-link">Seguridad</a>
+                    </div>
+
+                    <div class="h-4 w-[1px] bg-white/20"></div>
+
+                    <!-- Grupo 3 -->
+                    <div class="flex gap-3">
+                        <a href="index.html#servicios" class="nav-link">Servicios</a>
+                        <a href="preguntas-frecuentes.html" class="nav-link">Preguntas frecuentes</a>
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div class="flex items-center gap-6 pl-6">
+                    <a href="contacto.html" class="btn-get-started flex items-center justify-center px-8 py-2.5 rounded-full border-2 border-[#ED623B] bg-[#ED623B] font-bold uppercase tracking-widest text-sm transition-all duration-300 min-w-[180px] text-white shadow-lg shadow-cavex-orange/30">
+                        <div class="btn-content flex items-center gap-3">
+                            <span class="whitespace-nowrap">Contacto</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                            </svg>
+                        </div>
+                    </a>
+                    <button class="xl:hidden p-2 text-white" id="mobile-menu-button" type="button" aria-label="Abrir menú">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="mobile-menu-panel">
+                <a href="index.html">Inicio</a>
+                <a href="como-funciona.html">Cómo funciona</a>
+                <a href="seguridad.html">Seguridad</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+                <a href="contacto.html" class="text-cavex-orange">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative z-10 w-[95%] max-w-[1300px] mx-auto py-16 lg:py-24 px-6">
+        <section class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 justify-between">
+            
+            <!-- Contenido Izquierda -->
+            <div class="w-full lg:w-1/2 text-center lg:text-left reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 text-white font-bold text-xs tracking-widest uppercase border border-white/10 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-cavex-orange animate-pulse"></span>
+                    Atención Inmediata
+                </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white uppercase tracking-tighter leading-none mb-8">
+                    ¿Listo para<br>
+                    viajar con<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cavex-orange to-amber-500">CAVEX?</span>
+                </h1>
+                <p class="text-gray-300 text-lg md:text-xl font-medium mb-10 max-w-xl leading-relaxed">
+                    Comunícate con nuestra central de traslados a través de WhatsApp o llamada telefónica para recibir una cotización rápida y atención personalizada.
+                </p>
+                
+                <div class="hidden lg:block relative w-[380px] h-32 text-white/40 mt-6 translate-x-16">
+                    <!-- Flecha Curva Apuntando al Teléfono (30% más larga y extremadamente cercana) -->
+                    <svg class="w-full h-full text-cavex-orange/70 filter drop-shadow-[0_0_12px_rgba(237,98,59,0.4)] animate-pulse" viewBox="0 0 380 200" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M 10 30 Q 150 10 200 130 T 365 110" />
+                        <path d="M 345 95 L 368 110 L 345 125" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Contenido Derecha (Smartphone Mockup Enorme) -->
+            <div class="w-full lg:w-1/2 flex justify-center reveal" style="--reveal-delay: 200ms;">
+                <div class="relative group">
+                    <!-- Brillo de contraste trasero -->
+                    <div class="absolute inset-0 bg-white/10 blur-[60px] rounded-full group-hover:bg-white/20 transition-all duration-500"></div>
+                    
+                    <!-- El "Teléfono" 3D - Estructura Reforzada -->
+                    <div class="phone-tilt relative w-[320px] h-[640px] bg-black border-[6px] border-gray-900 rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] ring-1 ring-white/40 cursor-grab active:cursor-grabbing flex flex-col overflow-hidden" 
+                         data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+                        
+                        <!-- Notch / Dynamic Island -->
+                        <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-900 rounded-full z-20 border border-white/5"></div>
+
+                        <!-- Pantalla (Contraste Blanco) -->
+                        <div class="absolute inset-[4px] bg-white rounded-[2.6rem] flex flex-col p-6 overflow-hidden">
+                            <!-- UI Simulado -->
+                            <div class="mt-12 space-y-4 flex-grow flex flex-col justify-between pb-8">
+                                <div class="space-y-4">
+                                    <div class="h-4 w-2/3 bg-gray-100 rounded-full"></div>
+                                    <div class="h-10 w-full bg-gray-200 rounded-2xl flex items-center px-4">
+                                        <span class="text-gray-500 font-bold text-xs uppercase tracking-widest">Grupo CAVEX</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div class="h-28 bg-gray-100 rounded-2xl flex flex-col justify-center items-center p-3 text-center border border-gray-200/50">
+                                            <span class="text-cavex-orange font-black text-2xl">24/7</span>
+                                            <span class="text-gray-400 font-bold text-[9px] uppercase tracking-wider mt-1">Servicio</span>
+                                        </div>
+                                        <div class="h-28 bg-gray-100 rounded-2xl flex flex-col justify-center items-center p-3 text-center border border-gray-200/50">
+                                            <span class="text-[#25D366] font-black text-2xl">GPS</span>
+                                            <span class="text-gray-400 font-bold text-[9px] uppercase tracking-wider mt-1">Rastreo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Botones de Acción de Ultra Contraste -->
+                                <div class="space-y-3">
+                                    <a href="https://wa.me/521234567890?text=Hola,%20me%20gustaría%20cotizar%20un%20traslado" target="_blank" 
+                                       class="h-14 w-full bg-[#25D366] rounded-2xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md no-underline">
+                                        <img class="w-6 h-6 filter brightness-0 invert" src="assets/whatsapp.svg" alt="WhatsApp">
+                                        <span class="text-white font-black text-sm uppercase tracking-widest italic">WhatsApp</span>
+                                    </a>
+                                    <a href="tel:+521234567890" class="h-14 w-full bg-cavex-orange rounded-2xl flex items-center justify-center hover:scale-[1.02] active:scale-[0.98] transition-transform shadow-md no-underline">
+                                        <span class="text-white font-black text-sm uppercase tracking-widest italic">Llamar</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Brillo de Pantalla -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent pointer-events-none"></div>
+                        </div>
+
+                        <!-- Botón lateral -->
+                        <div class="absolute right-[-8px] top-32 w-1 h-16 bg-gray-800 rounded-l-md"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: UBICACIÓN Y MAPA 3D -->
+        <section id="ubicacion" class="reveal w-[95%] max-w-[1300px] mx-auto py-20 px-6 relative z-10" style="--reveal-dist: 15px;">
+            <div class="text-center mb-16">
+                <span class="px-4 py-1.5 bg-[#ED623B]/10 border border-[#ED623B]/20 rounded-full text-xs font-bold text-[#ED623B] uppercase tracking-widest">
+                    Nuestra Central
+                </span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter text-white uppercase mt-4">
+                    Visítanos en nuestras <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ED623B] to-amber-500">Oficinas.</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm md:text-base max-w-xl mx-auto">
+                    Conoce la infraestructura operativa de CAVEX. Seguridad y coordinación logística en tiempo real.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Foto de la Empresa / Oficina -->
+                <div class="reveal group relative rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-xl p-5 shadow-[0_30px_100px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#ED623B]/40 hover:shadow-[0_20px_50px_rgba(237,98,59,0.15)]" data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
+                    <!-- Resplandor de fondo -->
+                    <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#ED623B]/10 rounded-full blur-[80px] pointer-events-none transition-all duration-500 group-hover:bg-[#ED623B]/20"></div>
+                    <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-amber-500/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+                    <div class="relative overflow-hidden rounded-[30px] aspect-[4/3] lg:aspect-auto lg:h-[520px] cursor-zoom-in group/img" id="open-office-lightbox">
+                        <img src="assets/images/empresa.webp" 
+                             alt="Oficinas Centrales CAVEX" 
+                             class="w-full h-full object-cover transition-transform duration-[8s] group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-black/25 to-transparent"></div>
+                        
+                        <!-- Lupa de zoom en hover -->
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-full text-white shadow-lg transition-transform duration-300 scale-90 group-hover/img:scale-100 flex items-center justify-center gap-2">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                                <span class="text-xs font-black uppercase tracking-widest text-white pr-2">Ampliar Imagen</span>
+                            </div>
+                        </div>
+
+                        <!-- Etiqueta Flotante de Oficina -->
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/5 backdrop-blur-lg border border-white/10 p-5 rounded-2xl z-10">
+                            <span class="text-xs font-black uppercase tracking-widest text-[#ED623B] block mb-1">Oficinas Centrales</span>
+                            <span class="text-white font-black tracking-tight text-lg block">Grupo CAVEX Corporativo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Mapa en 3D interactivo -->
+                <div class="reveal group relative rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-xl p-7 shadow-[0_30px_100px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-[#ED623B]/40 hover:shadow-[0_20px_50px_rgba(237,98,59,0.15)]" data-tilt data-tilt-max="4" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.1">
+                    <!-- Resplandor de fondo -->
+                    <div class="absolute -top-24 -right-24 w-48 h-48 bg-[#33ccff]/5 rounded-full blur-[80px] pointer-events-none"></div>
+                    <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-[#ED623B]/10 rounded-full blur-[80px] pointer-events-none transition-all duration-500 group-hover:bg-[#ED623B]/20"></div>
+
+                    <!-- Contenedor del Mapa con Efecto de Profundidad 3D -->
+                    <div class="relative w-full h-[280px] rounded-3xl overflow-hidden border border-white/10 shadow-inner transition-all group-hover:border-[#ED623B]/20">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=Tula-Jorobas%20KM.%203.2,%20El%20Llano%202da%20Secc,%2042820%20El%20Llano,%20Hgo.&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; filter: saturate(0.6) contrast(1.1) brightness(0.85);" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        <div class="absolute inset-0 pointer-events-none border border-white/5 rounded-3xl"></div>
+                    </div>
+
+                    <!-- Dirección y Detalles -->
+                    <div class="mt-6 space-y-5">
+                        <div class="flex items-start gap-4 bg-white/5 border border-white/10 p-5 rounded-2xl transition-all duration-300 hover:bg-white/10 hover:border-[#ED623B]/30">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#ED623B] to-amber-500 shadow-[0_0_20px_rgba(237,98,59,0.3)] flex items-center justify-center shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="text-xs font-black uppercase tracking-widest text-[#ED623B] block">Dirección Exacta</span>
+                                <p class="text-white font-black text-sm md:text-base leading-relaxed mt-1">
+                                    Tula-Jorobas KM. 3.2, El Llano 2da Secc, 42820 El Llano, Hgo.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Navegación Externa -->
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <!-- Botón Google Maps -->
+                            <a href="https://www.google.com/maps/search/?api=1&query=Tula-Jorobas%20KM.%203.2,%20El%20Llano%202da%20Secc,%2042820%20El%20Llano,%20Hgo." 
+                               target="_blank" 
+                               class="h-14 w-full bg-[#ED623B]/10 border border-[#ED623B]/30 hover:bg-[#ED623B] rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 no-underline text-white font-extrabold text-xs uppercase tracking-widest hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(237,98,59,0.3)]">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                Google Maps
+                            </a>
+
+                            <!-- Botón Waze -->
+                            <a href="https://waze.com/ul?q=Tula-Jorobas%20KM.%203.2,%20El%20Llano%202da%20Secc,%2042820%20El%20Llano,%20Hgo." 
+                               target="_blank" 
+                               class="h-14 w-full bg-[#33ccff]/10 border border-[#33ccff]/30 hover:bg-[#33ccff] rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 no-underline text-white font-extrabold text-xs uppercase tracking-widest hover:scale-[1.03] hover:shadow-[0_0_25px_rgba(51,204,255,0.3)] hover:text-black">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.62 13.9a4.84 4.84 0 0 1 .38 1.9c0 2.7-2.2 4.9-4.9 4.9a4.91 4.91 0 0 1-4.24-2.45c-.4-.44-.97-.75-1.57-.75h-.3a4.9 4.9 0 0 1-4.89-4.89c0-1.85 1.05-3.5 2.7-4.3A5.4 5.4 0 0 1 7 8a5 5 0 0 1 5-5c2.76 0 5 2.24 5 5a4.9 4.9 0 0 1-.95 2.85 4.85 4.85 0 0 1 4.57 3.05zM12 5a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                                </svg>
+                                Waze
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/521234567890?text=Hola,%20me%20gustaría%20cotizar%20un%20traslado" target="_blank"
+        class="fixed bottom-6 right-6 z-[999] flex items-center gap-2 bg-[#25D366] text-white px-5 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-[0_8px_30px_rgba(37,211,102,0.3)] hover:bg-[#20ba5a] hover:scale-105 transition-all duration-300">
+        <img class="w-5 h-5 filter brightness-0 invert" src="assets/whatsapp.svg" alt="WhatsApp">
+        Solicitar
+    </a>
+
+    <!-- Scripts Locales -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script src="js/site.js"></script>
+    
+    <script>
+        // Ocultar Skeleton Loader al finalizar la carga
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('skeleton-loader');
+            if (loader) {
+                loader.classList.add('is-hidden');
+                setTimeout(() => loader.remove(), 600);
+            }
+        });
+
+        // Configuración de Scroll Reveal
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: "0px"
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                } else {
+                    entry.target.classList.remove('reveal-visible');
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Lógica para Abrir y Cerrar Lightbox de Oficina
+        const openBtn = document.getElementById('open-office-lightbox');
+        const lightbox = document.getElementById('office-lightbox');
+        const closeBtn = document.getElementById('close-lightbox');
+        const content = document.getElementById('lightbox-content');
+
+        if (openBtn && lightbox && closeBtn && content) {
+            openBtn.addEventListener('click', () => {
+                lightbox.classList.remove('opacity-0', 'pointer-events-none');
+                lightbox.classList.add('opacity-100', 'pointer-events-auto');
+                content.classList.remove('scale-90');
+                content.classList.add('scale-100');
+                document.body.style.overflow = 'hidden'; // Evitar scroll
+            });
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('opacity-100', 'pointer-events-auto');
+                lightbox.classList.add('opacity-0', 'pointer-events-none');
+                content.classList.remove('scale-100');
+                content.classList.add('scale-90');
+                document.body.style.overflow = ''; // Restaurar scroll
+            };
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        }
+    </script>
+
+    <!-- Modal de Zoom Lightbox Premium -->
+    <div id="office-lightbox" class="fixed inset-0 z-[99999] bg-[#0B1120]/95 backdrop-blur-2xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-500">
+        <button id="close-lightbox" class="absolute top-8 right-8 text-white hover:text-[#ED623B] transition-colors p-3 rounded-full bg-white/5 border border-white/10 z-50 hover:scale-105 active:scale-95 duration-200">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="relative max-w-[95vw] lg:max-w-[80vw] max-h-[85vh] rounded-[40px] overflow-hidden border border-white/15 shadow-[0_0_80px_rgba(0,0,0,0.8)] scale-90 transition-transform duration-500" id="lightbox-content">
+            <img src="assets/images/empresa.webp" alt="Oficinas Centrales CAVEX" class="w-full h-full object-contain max-h-[85vh]">
+            <div class="absolute bottom-6 left-6 right-6 bg-black/60 backdrop-blur-md border border-white/10 p-5 rounded-2xl z-10 hidden md:block">
+                <span class="text-xs font-black uppercase tracking-widest text-[#ED623B] block mb-1">Oficinas Centrales</span>
+                <span class="text-white font-bold text-base block">Tula-Jorobas KM. 3.2, El Llano 2da Secc, 42820 El Llano, Hgo.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

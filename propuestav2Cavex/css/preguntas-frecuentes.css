@@ -3,21 +3,26 @@
 /* ============================= */
 
 :root {
-    --faq-black: #000000;
-    --faq-white: #ffffff;
-    --faq-bg: #fcfcfc;
-    --faq-soft: #f3f3f3;
-    --faq-muted: #6b7280;
+    --faq-black: #ffffff;
+    --faq-white: rgba(255, 255, 255, 0.05);
+    --faq-bg: #0B1120;
+    --faq-soft: rgba(255, 255, 255, 0.08);
+    --faq-muted: #9ca3af;
     --faq-muted-light: #d1d5db;
-    --faq-border: rgba(0, 0, 0, 0.08);
-    --faq-shadow: 0 18px 45px rgba(0, 0, 0, 0.07);
-    --faq-shadow-strong: 0 22px 55px -18px rgba(0, 0, 0, 0.55);
+    --faq-border: rgba(255, 255, 255, 0.1);
+    --faq-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+    --faq-shadow-strong: 0 22px 55px -18px rgba(0, 0, 0, 0.75);
 }
 
 html,
 body {
     max-width: 100%;
-    overflow-x: hidden;
+}
+
+header {
+    position: sticky !important;
+    top: 1.5rem !important;
+    z-index: 9999 !important;
 }
 
 body {
@@ -94,9 +99,10 @@ button {
     overflow: hidden;
     border-radius: 36px;
     padding: clamp(3rem, 7vw, 6rem);
-    background: var(--faq-black);
-    color: var(--faq-white);
-    box-shadow: var(--faq-shadow-strong);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+    color: #ffffff;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .faq-hero-card::before {
@@ -263,12 +269,28 @@ button {
     border-radius: 18px;
     background: var(--faq-white);
     box-shadow: 0 14px 45px rgba(0, 0, 0, 0.045);
-    transition: transform 250ms ease, box-shadow 250ms ease;
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease, background-color 250ms ease;
 }
 
 .faq-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.08);
+    border-color: rgba(237, 98, 59, 0.5);
+    box-shadow: 0 15px 35px rgba(237, 98, 59, 0.15);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.faq-item.is-open {
+    border-color: rgba(237, 98, 59, 0.55);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 20px rgba(237, 98, 59, 0.05);
+}
+
+.faq-item.is-open .faq-question {
+    color: #ED623B !important;
+}
+
+.faq-item.is-open .faq-arrow {
+    color: #ED623B !important;
 }
 
 .faq-question {
@@ -325,7 +347,7 @@ button {
 .faq-answer p {
     margin: 0;
     padding: 0 1.5rem 1.6rem;
-    color: #4b5563;
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.75;
     font-size: 1rem;
 }
@@ -388,7 +410,7 @@ button {
     display: block;
     max-width: 640px;
     margin: 1.4rem auto 0;
-    color: #4b5563;
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1.05rem;
     line-height: 1.7;
 }

@@ -3,19 +3,36 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CAVEX - Traslados Seguros y Programados</title>
-    
+    <title>¿Cómo funciona? | CAVEX</title>
+
     <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
+
     <!-- Scripts Base -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cavex: {
+                            orange: '#ED623B',
+                            orangeHover: '#d84b24',
+                            blue: '#1B365D',
+                            blueHover: '#254B80',
+                            darkBg: '#13253F',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
     <!-- Estilos Locales -->
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/navbar.css" />
-    
+
     <style>
         body { 
             font-family: 'Outfit', sans-serif; 
@@ -29,8 +46,7 @@
         }
     </style>
 </head>
-<body class="bg-[#0B1120] text-white overflow-x-hidden relative">
-
+<body class="bg-[#0B1120] relative">
     <!-- Textura global de puntos -->
     <div class="fixed inset-0 pointer-events-none opacity-30 z-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px); background-size: 30px 30px; filter: blur(0.5px);"></div>
 
@@ -78,7 +94,7 @@
     <header class="sticky top-6 z-[100] w-full">
         <div class="nav-wrapper mt-6 px-4">
             <nav class="w-full max-w-[1600px] mx-auto bg-white/10 border border-white/10 backdrop-blur-md rounded-[50px] px-6 py-4 flex items-center justify-between shadow-lg">
-                
+
                 <!-- Identidad -->
                 <a href="index.html" class="flex items-center pl-4 pr-8 border-r border-white/10 no-underline">
                     <img src="assets/images/logocavex.webp" alt="CAVEX Logo" class="h-12 w-auto object-contain transition-transform duration-300 hover:scale-105">
@@ -88,14 +104,14 @@
                 <div class="hidden xl:flex items-center gap-4 flex-grow justify-center px-6">
                     <!-- Grupo 1 -->
                     <div class="flex gap-3">
-                        <a href="index.html" class="nav-link active-link">Inicio</a>
+                        <a href="index.html" class="nav-link">Inicio</a>
                     </div>
 
                     <div class="h-4 w-[1px] bg-white/20"></div>
 
                     <!-- Grupo 2 -->
                     <div class="flex gap-3">
-                        <a href="como-funciona.html" class="nav-link">Cómo funciona</a>
+                        <a href="como-funciona.html" class="nav-link active-link">Cómo funciona</a>
                         <a href="seguridad.html" class="nav-link">Seguridad</a>
                     </div>
 
@@ -106,11 +122,12 @@
                         <a href="index.html#servicios" class="nav-link">Servicios</a>
                         <a href="preguntas-frecuentes.html" class="nav-link">Preguntas frecuentes</a>
                     </div>
-                </div>                <!-- Botones -->
+                </div>
+
+                <!-- Botones -->
                 <div class="flex items-center gap-6 pl-6">
-                    <a href="contacto.html" class="btn-get-started relative flex items-center justify-center px-8 py-2.5 rounded-full overflow-hidden border-2 border-[#ED623B] bg-transparent font-bold uppercase tracking-widest text-sm transition-colors duration-300 min-w-[180px] text-white">
-                        <div class="btn-bg absolute inset-0 bg-[#ED623B] transition-transform duration-500 ease-out z-0"></div>
-                        <div class="btn-content relative z-10 flex items-center gap-3 transition-colors duration-300">
+                    <a href="contacto.html" class="btn-get-started flex items-center justify-center px-8 py-2.5 rounded-full border-2 border-[#ED623B] font-bold uppercase tracking-widest text-sm transition-colors duration-300 min-w-[180px] text-white">
+                        <div class="btn-content flex items-center gap-3">
                             <span class="whitespace-nowrap">Contacto</span>
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
@@ -138,48 +155,44 @@
     </header>
 
     <main>
-        <!-- SECCIÓN: BANNER / HERO -->
-        <section class="reveal relative w-[95%] max-w-[1600px] mx-auto min-h-[550px] lg:min-h-[650px] rounded-[30px] lg:rounded-[40px] overflow-hidden mt-8 mb-12 flex items-center shadow-[0_20px_50px_-12px_rgba(0,0,0,0.6)] group" style="--reveal-dist: 10px;">
-            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop" 
-                 alt="Fondo de coche premium" 
-                 class="absolute inset-0 w-full h-full object-cover object-right transition-transform duration-[10s] group-hover:scale-105">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-transparent"></div>
-            <div class="relative z-10 w-full px-8 py-16 lg:px-20 lg:py-24 flex flex-col items-start justify-center">
-                <div class="max-w-[54rem] space-y-6 lg:space-y-8">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tighter text-white uppercase">
-                        Traslados <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#ED623B] to-[#F2724D]">Seguros y Programados</span><br>
-                        Para tus destinos importantes.
-                    </h1>
-                    <div class="bg-black/40 backdrop-blur-md border border-white/10 p-6 lg:p-8 rounded-[30px] max-w-[44rem] shadow-2xl transition-all duration-500 hover:bg-black/50">
-                        <p class="text-base lg:text-lg text-gray-300 font-medium leading-relaxed">
-                            Grupo <span class="text-white font-bold">CAVEX</span> te ayuda a trasladarte con confianza, seguimiento en tiempo real y atención personalizada para citas, oficinas, hospitals, trámites y viajes especiales.
-                        </p>
-                        <div class="mt-4 flex flex-wrap gap-3">
-                            <span class="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-gray-200 uppercase tracking-widest flex items-center gap-2">
-                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                Seguridad
-                            </span>
-                            <span class="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-gray-200 uppercase tracking-widest flex items-center gap-2">
-                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                Puntualidad
-                            </span>
-                            <span class="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-gray-200 uppercase tracking-widest flex items-center gap-2">
-                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                                Confort
-                            </span>
-                        </div>
+        <!-- SECCIÓN: CÓMO FUNCIONA -->
+        <section class="w-[95%] max-w-[1300px] mx-auto py-20 px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">Proceso Simple</h2>
+                <h3 class="text-4xl lg:text-5xl font-black tracking-tighter text-white uppercase">
+                    ¿Cómo funciona <span class="text-cavex-orange">CAVEX?</span>
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Paso 1 -->
+                <div class="reveal group relative p-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-[40px] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-cavex-orange/30" style="--reveal-delay: 100ms;">
+                    <div class="step-number absolute top-8 right-8 text-7xl font-black transition-all duration-700 ease-out">01</div>
+                    <div class="step-icon-box w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-8 shadow-lg transition-all duration-500 z-10 relative">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
                     </div>
-                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                        <a href="contacto.html" class="bg-[#ED623B] text-white px-8 py-3.5 rounded-full font-bold text-base hover:shadow-[0_0_25px_rgba(237,98,59,0.5)] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center no-underline">
-                            Solicitar Traslado
-                        </a>
-                        <a href="contacto.html" class="group/btn flex items-center gap-3 bg-transparent text-white font-bold text-base hover:opacity-85 transition-opacity no-underline">
-                            <span>Programar Viaje</span>
-                            <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center group-hover/btn:bg-white group-hover/btn:text-black transition-all">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </div>
-                        </a>
+                    <h4 class="text-xl font-bold mb-4 uppercase tracking-tight text-white">Solicitar Viaje</h4>
+                    <p class="text-white/60 leading-relaxed">Ingresa tus datos de origen y destino para obtener una tarifa transparente y sin sorpresas.</p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="reveal group relative p-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-[40px] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-cavex-orange/30" style="--reveal-delay: 300ms;">
+                    <div class="step-number absolute top-8 right-8 text-7xl font-black transition-all duration-700 ease-out">02</div>
+                    <div class="step-icon-box w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-8 shadow-lg transition-all duration-500 z-10 relative">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     </div>
+                    <h4 class="text-xl font-bold mb-4 uppercase tracking-tight text-white">Agenda el Viaje</h4>
+                    <p class="text-white/60 leading-relaxed">Elige la fecha y hora que mejor te convenga. Nosotros nos encargamos del resto con puntualidad.</p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="reveal group relative p-10 bg-white/5 backdrop-blur-sm border border-white/10 rounded-[40px] shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-cavex-orange/30" style="--reveal-delay: 500ms;">
+                    <div class="step-number absolute top-8 right-8 text-7xl font-black transition-all duration-700 ease-out">03</div>
+                    <div class="step-icon-box w-16 h-16 bg-black rounded-2xl flex items-center justify-center mb-8 shadow-lg transition-all duration-500 z-10 relative">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 uppercase tracking-tight text-white">Traslado Seguro</h4>
+                    <p class="text-white/60 leading-relaxed">Disfruta de un viaje cómodo con seguimiento en tiempo real y atención personalizada 24/7.</p>
                 </div>
             </div>
         </section>

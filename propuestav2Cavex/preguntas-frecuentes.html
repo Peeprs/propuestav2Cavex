@@ -10,14 +10,35 @@
 
     <!-- Tailwind se mantiene porque el proyecto actual ya lo está usando -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cavex: {
+                            orange: '#ED623B',
+                            orangeHover: '#d84b24',
+                            blue: '#1B365D',
+                            blueHover: '#254B80',
+                            darkBg: '#13253F',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
     <!-- Estilos existentes del proyecto -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/preguntas-frecuentes.css" />
 </head>
 
-<body class="bg-[#fcfcfc]">
+<body class="bg-[#0B1120] overflow-x-hidden relative">
+
+    <!-- Textura global de puntos -->
+    <div class="fixed inset-0 pointer-events-none opacity-30 z-0" style="background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px); background-size: 30px 30px; filter: blur(0.5px);"></div>
 
     <!-- Skeleton Loader Inicial -->
     <div id="skeleton-loader" class="skeleton-loader">
@@ -62,56 +83,50 @@
     <!-- Header / Navigation -->
     <header class="sticky top-6 z-[100] w-full">
         <div class="nav-wrapper mt-6 px-4">
-            <nav class="w-full max-w-[1600px] mx-auto bg-white border border-black/10 rounded-[50px] px-6 py-3 flex items-center justify-between shadow-md">
+            <nav class="w-full max-w-[1600px] mx-auto bg-white/10 border border-white/10 backdrop-blur-md rounded-[50px] px-6 py-4 flex items-center justify-between shadow-lg">
 
                 <!-- Identidad -->
-                <div class="flex items-center gap-3 pl-4 pr-8 border-r border-black/5">
-                    <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold text-sm">CX</span>
-                    </div>
-                    <span class="text-xl font-bold tracking-tighter">CAVEX</span>
-                </div>
+                <a href="index.html" class="flex items-center pl-4 pr-8 border-r border-white/10 no-underline">
+                    <img src="assets/images/logocavex.webp" alt="CAVEX Logo" class="h-12 w-auto object-contain transition-transform duration-300 hover:scale-105">
+                </a>
 
                 <!-- Menú -->
                 <div class="hidden xl:flex items-center gap-4 flex-grow justify-center px-6">
+                    <!-- Grupo 1 -->
                     <div class="flex gap-3">
                         <a href="index.html" class="nav-link">Inicio</a>
-                        <a href="index.html#cotizar" class="nav-link">Cotizar traslado</a>
                     </div>
 
-                    <div class="h-4 w-[1px] bg-black/10"></div>
+                    <div class="h-4 w-[1px] bg-white/20"></div>
 
+                    <!-- Grupo 2 -->
                     <div class="flex gap-3">
-                        <a href="index.html#seguridad" class="nav-link">Seguridad</a>
-                        <a href="preguntas-frecuentes.html" class="nav-link active-link">Preguntas frecuentes</a>
+                        <a href="como-funciona.html" class="nav-link">Cómo funciona</a>
+                        <a href="seguridad.html" class="nav-link">Seguridad</a>
                     </div>
 
-                    <div class="h-4 w-[1px] bg-black/10"></div>
+                    <div class="h-4 w-[1px] bg-white/20"></div>
 
+                    <!-- Grupo 3 -->
                     <div class="flex gap-3">
                         <a href="index.html#servicios" class="nav-link">Servicios</a>
-                        <a href="index.html#como-funciona" class="nav-link">Cómo funciona</a>
+                        <a href="preguntas-frecuentes.html" class="nav-link active-link">Preguntas frecuentes</a>
                     </div>
                 </div>
 
                 <!-- Botones -->
                 <div class="flex items-center gap-6 pl-6">
-                    <a href="index.html#contacto" class="nav-link hidden lg:block whitespace-nowrap">Contacto</a>
-
-                    <a href="index.html#contacto" class="btn-get-started relative flex items-center justify-center px-8 py-2.5 rounded-full overflow-hidden border-2 border-black bg-white font-bold uppercase tracking-widest text-sm transition-colors duration-300 min-w-[180px]">
-                        <div class="btn-bg absolute inset-0 bg-black transition-transform duration-500 ease-out z-0"></div>
-
-                        <div class="btn-content relative z-10 flex items-center gap-3 transition-colors duration-300">
-                            <span class="whitespace-nowrap">Get Started</span>
+                    <a href="contacto.html" class="btn-get-started flex items-center justify-center px-8 py-2.5 rounded-full border-2 border-[#ED623B] font-bold uppercase tracking-widest text-sm transition-colors duration-300 min-w-[180px] text-white">
+                        <div class="btn-content flex items-center gap-3">
+                            <span class="whitespace-nowrap">Contacto</span>
                             <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
                             </svg>
                         </div>
                     </a>
-
-                    <button class="xl:hidden p-2 text-black" id="mobile-menu-button" type="button" aria-label="Abrir menú">
+                    <button class="xl:hidden p-2 text-white" id="mobile-menu-button" type="button" aria-label="Abrir menú">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </button>
                 </div>
@@ -120,12 +135,11 @@
             <!-- Menú móvil -->
             <div id="mobile-menu" class="mobile-menu-panel">
                 <a href="index.html">Inicio</a>
-                <a href="index.html#cotizar">Cotizar traslado</a>
-                <a href="index.html#seguridad">Seguridad</a>
-                <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+                <a href="como-funciona.html">Cómo funciona</a>
+                <a href="seguridad.html">Seguridad</a>
                 <a href="index.html#servicios">Servicios</a>
-                <a href="index.html#como-funciona">Cómo funciona</a>
-                <a href="index.html#contacto">Contacto</a>
+                <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+                <a href="contacto.html">Contacto</a>
             </div>
         </div>
     </header>
@@ -138,7 +152,7 @@
 
                 <h1>
                     Preguntas<br>
-                    frecuentes.
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cavex-orange to-amber-500">frecuentes.</span>
                 </h1>
 
                 <p>
@@ -152,49 +166,7 @@
         <section class="faq-content-section">
             <div class="faq-grid">
 
-                <!-- Card izquierda tipo referencia MediTrust -->
-                <aside class="faq-support-card reveal">
-                    <div class="faq-support-icon">?</div>
-
-                    <h2>¿Aún tienes preguntas?</h2>
-
-                    <p>
-                        Si no encontraste la respuesta que buscabas, puedes comunicarte con nosotros
-                        para recibir orientación personalizada sobre traslados, programación, pagos o seguimiento.
-                    </p>
-
-                    <div class="support-actions">
-                        <a href="mailto:contacto@cavex.com">
-                            <span>
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M4 4h16v16H4z"></path>
-                                    <path d="M4 6l8 7 8-7"></path>
-                                </svg>
-                            </span>
-                            Email Support
-                        </a>
-
-                        <a href="https://wa.me/0000000000">
-                            <span>
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                                </svg>
-                            </span>
-                            WhatsApp
-                        </a>
-
-                        <a href="tel:0000000000">
-                            <span>
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M22 16.92v3a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h3a2 2 0 012 1.72c.12.9.33 1.78.63 2.62a2 2 0 01-.45 2.11L9 10.64a16 16 0 006.36 6.36l1.19-1.18a2 2 0 012.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0122 16.92z"></path>
-                                </svg>
-                            </span>
-                            Call Us
-                        </a>
-                    </div>
-                </aside>
-
-                <!-- Acordeón derecha -->
+                <!-- Acordeón -->
                 <div class="faq-accordion reveal">
                     <article class="faq-item is-open">
                         <button class="faq-question" type="button" aria-expanded="true">
@@ -304,34 +276,69 @@
                         </div>
                     </article>
                 </div>
-            </div>
-        </section>
 
-        <!-- CTA FINAL -->
-        <section class="faq-final-cta reveal">
-            <div class="faq-final-card">
-                <p>Atención personalizada</p>
+                <!-- Smartphone Mockup al lado de las preguntas (Contacto local) -->
+                <div id="contacto" class="reveal flex justify-center items-center scroll-mt-32" style="--reveal-delay: 200ms;">
+                    <div class="relative group">
+                        <!-- Brillo de contraste trasero -->
+                        <div class="absolute inset-0 bg-white/10 blur-[60px] rounded-full group-hover:bg-white/20 transition-all duration-500"></div>
+                        
+                        <!-- El "Teléfono" 3D - Estructura Reforzada -->
+                        <div class="phone-tilt relative w-[320px] h-[640px] bg-black border-[6px] border-gray-900 rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,1)] ring-1 ring-white/40 cursor-grab active:cursor-grabbing flex flex-col overflow-hidden" 
+                             data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-perspective="1000">
+                             
+                             <!-- Notch / Dynamic Island -->
+                             <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-900 rounded-full z-20 border border-white/5"></div>
 
-                <h2>¿Necesitas resolver otra duda?</h2>
+                             <!-- Pantalla (Contraste Blanco) -->
+                             <div class="absolute inset-[4px] bg-white rounded-[2.6rem] flex flex-col p-6 overflow-hidden">
+                                 <!-- UI Simulado -->
+                                 <div class="mt-12 space-y-4">
+                                     <div class="h-4 w-2/3 bg-gray-100 rounded-full"></div>
+                                     <div class="h-10 w-full bg-gray-200 rounded-2xl"></div>
+                                     <div class="grid grid-cols-2 gap-3">
+                                         <div class="h-24 bg-gray-100 rounded-2xl"></div>
+                                         <div class="h-24 bg-gray-100 rounded-2xl"></div>
+                                     </div>
+                                     <!-- Botones de Acción -->
+                                     <div class="space-y-2 pt-4">
+                                         <a href="https://wa.me/521234567890?text=Hola,%20me%20gustaría%20cotizar%20un%20traslado" target="_blank" 
+                                            class="h-14 w-full bg-cavex-orange rounded-2xl flex items-center justify-center gap-3 hover:bg-cavex-orangeHover transition-colors no-underline">
+                                             <img class="w-6 h-6" src="assets/whatsapp.svg" alt="WhatsApp">
+                                             <span class="text-white font-black text-xs uppercase tracking-widest italic">Contactar</span>
+                                         </a>
+                                         <a href="tel:+521234567890" class="h-14 w-full bg-cavex-blue rounded-2xl flex items-center justify-center hover:bg-cavex-blueHover transition-colors border border-white/5 shadow-md no-underline">
+                                             <span class="text-white font-black text-xs uppercase tracking-widest italic">Llamar</span>
+                                         </a>
+                                     </div>
+                                 </div>
 
-                <span>
-                    Solicita información y agenda un traslado con claridad, seguimiento y confianza.
-                </span>
+                                 <!-- Brillo de Pantalla -->
+                                 <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent pointer-events-none"></div>
+                             </div>
 
-                <div class="faq-final-actions">
-                    <a href="https://wa.me/0000000000">Hablar por WhatsApp</a>
-                    <a href="index.html#contacto">Ir a contacto</a>
+                             <!-- Botón lateral -->
+                             <div class="absolute right-[-8px] top-32 w-1 h-16 bg-gray-800 rounded-l-md"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+
     </main>
+ 
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/521234567890?text=Hola,%20me%20gustaría%20cotizar%20un%20traslado" target="_blank"
+        class="fixed bottom-6 right-6 z-[999] flex items-center gap-2 bg-[#25D366] text-white px-5 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-[0_8px_30px_rgba(37,211,102,0.3)] hover:bg-[#20ba5a] hover:scale-105 transition-all duration-300">
+        <img class="w-5 h-5 filter brightness-0 invert" src="assets/whatsapp.svg" alt="WhatsApp">
+        Solicitar
+    </a>
 
-    <footer class="w-full py-10 px-6 border-t border-black/5 text-center">
-        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">
-            &copy; 2026 GRUPO CAVEX
-        </p>
-    </footer>
-
+    <!-- Scripts Locales -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
     <script src="js/preguntas-frecuentes.js"></script>
 </body>
 </html>

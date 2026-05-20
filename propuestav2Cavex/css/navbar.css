@@ -1,30 +1,99 @@
-/* Estilos del texto tomados de la primera navbar (letras negras resaltadas) */
+/* Estilos del texto tomados de la primera navbar (letras blancas de alto contraste) */
+header nav .nav-link,
 .nav-link { 
-    font-size: 0.95rem; 
-    letter-spacing: -0.01em; 
-    color: #000000; 
-    font-weight: 600; 
-    transition: color 0.3s; 
-    white-space: nowrap; /* Evita que los textos se partan en dos líneas */
+    font-size: 0.95rem !important; 
+    letter-spacing: -0.01em !important; 
+    color: rgba(255, 255, 255, 0.85) !important; 
+    font-weight: 600 !important; 
+    transition: all 0.3s ease !important; 
+    white-space: nowrap !important; /* Evita que los textos se partan en dos líneas */
+    position: relative !important;
+    padding: 6px 0 !important;
+    text-decoration: none !important;
 }
+
+header nav .nav-link::after,
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ED623B;
+    transition: width 0.3s ease;
+}
+
+header nav .nav-link:hover,
 .nav-link:hover { 
-    color: #6b7280; /* Gris al pasar el cursor */
+    color: #ffffff !important; /* Blanco en hover */
+}
+
+header nav .nav-link:hover::after,
+.nav-link:hover::after {
+    width: 100%;
+}
+
+header nav .nav-link.active-link,
+.nav-link.active-link {
+    color: #ED623B !important; /* Naranja en link activo */
+}
+
+header nav .nav-link.active-link::after,
+.nav-link.active-link::after {
+    width: 100%;
+    background-color: #ED623B;
 }
 
 /* Animación y colores del Botón GET STARTED */
 .btn-get-started {
-    color: #000000; /* Texto negro por defecto */
+    color: #ffffff !important; /* Texto blanco */
+    background-color: #ED623B !important; /* Siempre naranja */
+    border-color: #ED623B !important;
+    transition: all 0.3s ease !important;
 }
 .btn-get-started:hover {
-    color: #ffffff; /* Texto blanco en hover */
-    border-color: #000000; /* Asegurar que el borde siga negro */
-}
-.btn-get-started .btn-bg {
-    transform: translateX(-101%);
-}
-.btn-get-started:hover .btn-bg {
-    transform: translateX(0);
+    background-color: #db532c !important; /* Naranja más oscuro en hover */
+    box-shadow: 0 0 20px rgba(237, 98, 59, 0.5) !important;
+    transform: translateY(-2px) !important;
 }
 .btn-get-started:hover svg {
     transform: translateX(6px); /* Mueve la flecha a la derecha */
 }
+
+/* ============================= */
+/* MOBILE MENU */
+/* ============================= */
+
+.mobile-menu-panel {
+    display: none;
+    width: min(92%, 1200px);
+    margin: 12px auto 0;
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background: rgba(11, 17, 32, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+}
+
+.mobile-menu-panel.is-open {
+    display: grid;
+    gap: 4px;
+}
+
+.mobile-menu-panel a {
+    padding: 14px 18px;
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 220ms ease, transform 220ms ease, color 220ms ease;
+}
+
+.mobile-menu-panel a:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ED623B;
+    transform: translateX(4px);
+}
+
