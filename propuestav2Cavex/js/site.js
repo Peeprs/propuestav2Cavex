@@ -1,4 +1,4 @@
-﻿// Ocultar Skeleton Loader al finalizar la carga
+// Ocultar Skeleton Loader al finalizar la carga
 window.addEventListener('load', function() {
     const loader = document.getElementById('skeleton-loader');
     if (loader) {
@@ -7,10 +7,45 @@ window.addEventListener('load', function() {
     }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    // Definir el orden de las páginas para el desplazamiento
+    const pages = [
+        "index.html",
+        "como-funciona.html",
+        "seguridad.html",
+        "preguntas-frecuentes.html",
+        "contacto.html"
+    ];
+
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    let currentIndex = pages.findIndex(p => currentPath.includes(p));
+    if(currentIndex === -1) currentIndex = 0; // fallback
+
+    const prevIndex = sessionStorage.getItem("cavexPageIndex");
+    const mainEl = document.querySelector(".page-transition");
+    
+    if (mainEl && prevIndex !== null) {
+        const prev = parseInt(prevIndex, 10);
+        if (currentIndex > prev) {
+            // Viene de un link anterior, entra desde la derecha
+            mainEl.style.animation = "slideInRight 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards";
+        } else if (currentIndex < prev) {
+            // Viene de un link posterior, entra desde la izquierda
+            mainEl.style.animation = "slideInLeft 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards";
+        } else {
+            mainEl.style.animation = "fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards";
+        }
+    } else if (mainEl) {
+        mainEl.style.animation = "fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards";
+    }
+
+    sessionStorage.setItem("cavexPageIndex", currentIndex);
+});
+
 // Configuración de Scroll Reveal
 const revealOptions = {
-    threshold: 0.1,
-    rootMargin: "0px"
+    threshold: 0.15, 
+    rootMargin: "0px 0px -50px 0px"
 };
 
 const revealObserver = new IntersectionObserver((entries) => {
@@ -18,7 +53,8 @@ const revealObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('reveal-visible');
         } else {
-            entry.target.classList.remove('reveal-visible');
+            // Opcional: remover para animar en scroll hacia arriba
+            // entry.target.classList.remove('reveal-visible');
         }
     });
 }, revealOptions);
@@ -42,21 +78,4 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const revealOptions = {
-        threshold: 0.15, 
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('reveal-visible');
-            }
-        });
-    }, revealOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 });

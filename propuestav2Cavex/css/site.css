@@ -93,7 +93,7 @@ main {
   align-items: stretch;
   justify-content: center;
   overflow-y: auto;
-  background: linear-gradient(180deg, var(--color-white), #f8fafc);
+  background: #0B1120;
   transition: opacity 500ms ease, visibility 500ms ease;
 }
 
@@ -121,7 +121,7 @@ main {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-card);
-  background: #edf2f7;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .skeleton-line { height: 40px; width: 60%; }
@@ -136,7 +136,7 @@ main {
   position: absolute;
   inset: 0;
   transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   animation: shimmer 1.5s infinite;
 }
 
@@ -262,3 +262,23 @@ main {
   
   /* Transiciones suaves generales */
   .trans-all { transition: all 0.4s ease; }
+
+/* Animación de entrada para las páginas */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.page-transition {
+    opacity: 0;
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
