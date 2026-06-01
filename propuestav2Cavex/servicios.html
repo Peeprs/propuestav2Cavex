@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios | CAVEX</title>
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Estilos Locales -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/servicios.css" />
+</head>
+
+<body class="bg-[#0B1120] text-white overflow-x-hidden relative">
+
+    <!-- Textura global de puntos -->
+    <div class="fixed inset-0 pointer-events-none opacity-30 z-0"
+         style="background-image: radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px); background-size: 30px 30px; filter: blur(0.5px);">
+    </div>
+
+    <!-- Skeleton Loader Inicial -->
+    <div id="skeleton-loader" class="skeleton-loader">
+        <div class="skeleton-shell">
+            <div class="skeleton-header">
+                <div class="skeleton-line" style="width: 200px;"></div>
+            </div>
+
+            <div class="skeleton-hero">
+                <div class="skeleton-card-large"></div>
+            </div>
+
+            <div class="skeleton-cards">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra Global de Dispositivos -->
+    <div class="w-full relative z-[100]">
+        <div class="barra-global">
+            <div class="barra-brand">CAVEX</div>
+
+            <svg class="device-icon active" viewBox="0 0 24 24" title="Desktop">
+                <rect x="2" y="4" width="20" height="12" rx="1" ry="1"></rect>
+                <line x1="8" y1="20" x2="16" y2="20"></line>
+                <line x1="12" y1="16" x2="12" y2="20"></line>
+            </svg>
+
+            <svg class="device-icon" viewBox="0 0 24 24" title="Tablet">
+                <rect x="4" y="2" width="16" height="20" rx="1" ry="1"></rect>
+                <circle cx="12" cy="19" r="0.5" fill="currentColor"></circle>
+            </svg>
+
+            <svg class="device-icon" viewBox="0 0 24 24" title="Mobile">
+                <rect x="7" y="3" width="10" height="18" rx="1" ry="1"></rect>
+                <circle cx="12" cy="18" r="0.5" fill="currentColor"></circle>
+            </svg>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-6 z-[100] w-full">
+        <div class="nav-wrapper mt-6 px-4">
+            <nav class="w-full max-w-[1600px] mx-auto bg-white/10 border border-white/10 backdrop-blur-md rounded-[50px] px-6 py-4 flex items-center justify-between shadow-lg">
+
+                <!-- Identidad -->
+                <a href="index.html" class="flex items-center pl-4 pr-8 border-r border-white/10 no-underline">
+                    <img src="assets/images/logocavex.webp" alt="CAVEX Logo" class="h-12 w-auto object-contain transition-transform duration-300 hover:scale-105">
+                </a>
+
+                <!-- Menú -->
+                <div class="hidden xl:flex items-center gap-4 flex-grow justify-center px-6">
+                    <div class="flex gap-3">
+                        <a href="index.html" class="nav-link">Inicio</a>
+                    </div>
+
+                    <div class="h-4 w-[1px] bg-white/20"></div>
+
+                    <div class="flex gap-3">
+                        <a href="como-funciona.html" class="nav-link">Cómo funciona</a>
+                        <a href="seguridad.html" class="nav-link">Seguridad</a>
+                    </div>
+
+                    <div class="h-4 w-[1px] bg-white/20"></div>
+
+                    <div class="flex gap-3">
+                        <a href="servicios.html" class="nav-link active-link">Servicios</a>
+                        <a href="preguntas-frecuentes.html" class="nav-link">Preguntas frecuentes</a>
+                    </div>
+                </div>
+
+                <!-- Botón contacto -->
+                <div class="flex items-center gap-6 pl-6">
+                    <a href="contacto.html"
+                       class="btn-get-started relative flex items-center justify-center px-8 py-2.5 rounded-full overflow-hidden border-2 border-[#ED623B] bg-transparent font-bold uppercase tracking-widest text-sm transition-colors duration-300 min-w-[180px] text-white">
+                        <div class="btn-bg absolute inset-0 bg-[#ED623B] transition-transform duration-500 ease-out z-0"></div>
+
+                        <div class="btn-content relative z-10 flex items-center gap-3 transition-colors duration-300">
+                            <span class="whitespace-nowrap">Contacto</span>
+
+                            <svg class="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <button class="xl:hidden p-2 text-white" id="mobile-menu-button" type="button" aria-label="Abrir menú">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="mobile-menu-panel">
+                <a href="index.html">Inicio</a>
+                <a href="como-funciona.html">Cómo funciona</a>
+                <a href="seguridad.html">Seguridad</a>
+                <a href="servicios.html">Servicios</a>
+                <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="services-hero reveal">
+            <div class="services-hero-card">
+                <div class="services-hero-copy">
+                    <p class="eyebrow">Servicios CAVEX</p>
+
+                    <h1>
+                        Movilidad con<br>
+                        <span>confianza.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Elige el tipo de traslado que necesitas: médico, rápido, familiar, programado
+                        o con chofer por horas. CAVEX está pensado para viajes importantes, seguros
+                        y mejor organizados.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="contacto.html" class="primary-button">Cotizar traslado</a>
+                        <a href="#tipos-servicio" class="ghost-button">Ver servicios</a>
+                    </div>
+                </div>
+
+                <div class="services-phone-preview">
+                    <div class="phone-card">
+                        <div class="phone-top">
+                            <span></span>
+                        </div>
+
+                        <div class="phone-content">
+                            <p class="phone-title">Elige un servicio</p>
+
+                            <div class="service-option active">
+                                <div class="service-option-icon">+</div>
+                                <div>
+                                    <strong>Traslado médico</strong>
+                                    <small>Hospitales, clínicas o terapias</small>
+                                </div>
+                            </div>
+
+                            <div class="service-option">
+                                <div class="service-option-icon blue">↗</div>
+                                <div>
+                                    <strong>Viaje rápido</strong>
+                                    <small>Traslados inmediatos</small>
+                                </div>
+                            </div>
+
+                            <div class="service-option">
+                                <div class="service-option-icon purple">◷</div>
+                                <div>
+                                    <strong>Chofer por horas</strong>
+                                    <small>Disponibilidad temporal</small>
+                                </div>
+                            </div>
+
+                            <div class="service-option">
+                                <div class="service-option-icon green">👥</div>
+                                <div>
+                                    <strong>Viaje familiar</strong>
+                                    <small>Para acompañantes o grupos</small>
+                                </div>
+                            </div>
+
+                            <button>Continuar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIPOS DE SERVICIO -->
+        <section id="tipos-servicio" class="services-section">
+            <div class="section-heading reveal">
+                <p>Tipos de servicio</p>
+                <h2>Soluciones para cada necesidad de traslado.</h2>
+                <span>
+                    La vista está pensada para comunicar claramente qué ofrece CAVEX antes de que
+                    el usuario solicite un viaje desde la aplicación o el sitio web.
+                </span>
+            </div>
+
+            <div class="services-grid">
+                <article class="service-card reveal">
+                    <div class="icon-box medical">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 5v14"></path>
+                            <path d="M5 12h14"></path>
+                        </svg>
+                    </div>
+
+                    <p>01</p>
+                    <h3>Traslado médico</h3>
+                    <span>
+                        Para citas médicas, terapias, hospitales, clínicas o consultas programadas.
+                    </span>
+
+                    <ul>
+                        <li>Ideal para adultos mayores</li>
+                        <li>Viajes con destino sensible</li>
+                        <li>Mayor control para familiares</li>
+                    </ul>
+                </article>
+
+                <article class="service-card reveal" style="--delay: 100ms;">
+                    <div class="icon-box fast">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 13h10"></path>
+                            <path d="M11 6l7 7-7 7"></path>
+                        </svg>
+                    </div>
+
+                    <p>02</p>
+                    <h3>Viaje rápido</h3>
+                    <span>
+                        Para traslados sencillos donde el usuario necesita llegar pronto a un destino.
+                    </span>
+
+                    <ul>
+                        <li>Solicitud directa</li>
+                        <li>Ruta clara</li>
+                        <li>Destino registrado</li>
+                    </ul>
+                </article>
+
+                <article class="service-card reveal" style="--delay: 200ms;">
+                    <div class="icon-box hours">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 8v5l3 2"></path>
+                            <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path>
+                        </svg>
+                    </div>
+
+                    <p>03</p>
+                    <h3>Chofer por horas</h3>
+                    <span>
+                        Para usuarios que requieren disponibilidad del conductor durante un periodo.
+                    </span>
+
+                    <ul>
+                        <li>Actividades múltiples</li>
+                        <li>Mayor flexibilidad</li>
+                        <li>Tiempo previamente definido</li>
+                    </ul>
+                </article>
+
+                <article class="service-card reveal" style="--delay: 300ms;">
+                    <div class="icon-box family">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 11a4 4 0 1 0-8 0"></path>
+                            <path d="M4 21a8 8 0 0 1 16 0"></path>
+                        </svg>
+                    </div>
+
+                    <p>04</p>
+                    <h3>Viaje familiar o grupal</h3>
+                    <span>
+                        Para traslados donde el pasajero viaja acompañado o se requiere más espacio.
+                    </span>
+
+                    <ul>
+                        <li>Acompañantes</li>
+                        <li>Mayor comodidad</li>
+                        <li>Apoyo familiar</li>
+                    </ul>
+                </article>
+
+                <article class="service-card service-card-wide reveal" style="--delay: 400ms;">
+                    <div class="icon-box schedule">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 2v4"></path>
+                            <path d="M16 2v4"></path>
+                            <path d="M3 10h18"></path>
+                            <path d="M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path>
+                        </svg>
+                    </div>
+
+                    <p>05</p>
+                    <h3>Viaje programado</h3>
+                    <span>
+                        Reserva un traslado con anticipación, definiendo fecha, hora, origen,
+                        destino, vehículo y tipo de recorrido.
+                    </span>
+
+                    <ul>
+                        <li>Perfecto para citas importantes</li>
+                        <li>Permite planear ida o regreso</li>
+                        <li>Reduce improvisación y retrasos</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- FLUJO DEL SERVICIO -->
+        <section class="flow-section">
+            <div class="flow-card reveal">
+                <div class="flow-copy">
+                    <p>Proceso del servicio</p>
+                    <h2>De la solicitud al destino, todo queda organizado.</h2>
+                    <span>
+                        La experiencia se estructura por pasos para que el usuario sepa qué está
+                        solicitando, quién viaja, hacia dónde va y cómo se dará seguimiento.
+                    </span>
+                </div>
+
+                <div class="flow-steps">
+                    <article>
+                        <strong>01</strong>
+                        <h3>Selecciona el servicio</h3>
+                        <p>El usuario elige si necesita traslado médico, rápido, familiar, programado o chofer por horas.</p>
+                    </article>
+
+                    <article>
+                        <strong>02</strong>
+                        <h3>Agrega los datos del viaje</h3>
+                        <p>Se define pasajero, origen, destino, fecha, hora y tipo de vehículo necesario.</p>
+                    </article>
+
+                    <article>
+                        <strong>03</strong>
+                        <h3>Confirma y da seguimiento</h3>
+                        <p>El viaje queda registrado y el usuario puede recibir información del conductor y el recorrido.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- VEHÍCULOS -->
+        <section class="vehicles-section">
+            <div class="section-heading reveal">
+                <p>Opciones de vehículo</p>
+                <h2>Elige el vehículo según la necesidad del usuario.</h2>
+            </div>
+
+            <div class="vehicles-grid">
+                <article class="vehicle-card reveal">
+                    <span>Estándar</span>
+                    <h3>Para viajes individuales</h3>
+                    <p>Una opción práctica para traslados cotidianos o citas sencillas.</p>
+                </article>
+
+                <article class="vehicle-card reveal" style="--delay: 100ms;">
+                    <span>Amplio</span>
+                    <h3>Mayor comodidad</h3>
+                    <p>Ideal cuando el pasajero requiere más espacio o viaja con acompañante.</p>
+                </article>
+
+                <article class="vehicle-card reveal" style="--delay: 200ms;">
+                    <span>Van</span>
+                    <h3>Viajes familiares</h3>
+                    <p>Para grupos pequeños, familiares o traslados con equipaje.</p>
+                </article>
+
+                <article class="vehicle-card reveal" style="--delay: 300ms;">
+                    <span>Accesible</span>
+                    <h3>Movilidad asistida</h3>
+                    <p>Para usuarios que requieren mayor facilidad de acceso al vehículo.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="services-cta reveal">
+            <div class="cta-card">
+                <p>¿Listo para solicitar un traslado?</p>
+                <h2>Viaja con mayor seguridad, claridad y acompañamiento.</h2>
+
+                <div class="cta-actions">
+                    <a href="contacto.html">Contactar ahora</a>
+                    <a href="preguntas-frecuentes.html">Resolver dudas</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/521234567890?text=Hola,%20me%20gustaría%20cotizar%20un%20traslado"
+       target="_blank"
+       class="fixed bottom-6 right-6 z-[999] flex items-center gap-2 bg-[#25D366] text-white px-5 py-3 rounded-full font-bold text-xs uppercase tracking-widest shadow-[0_8px_30px_rgba(37,211,102,0.3)] hover:bg-[#20ba5a] hover:scale-105 transition-all duration-300 no-underline">
+        <img class="w-5 h-5 filter brightness-0 invert" src="assets/whatsapp.svg" alt="WhatsApp">
+        Solicitar
+    </a>
+
+    <!-- Scripts Locales -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/servicios.js"></script>
+</body>
+</html>
